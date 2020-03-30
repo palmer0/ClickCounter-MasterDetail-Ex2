@@ -52,7 +52,8 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
   }
 
   @And("^y mostrar contador en lista en posicion \"([^\"]*)\" con valor \"([^\"]*)\"$")
-  public void yMostrarContadorEnListaEnPosicionConValor(String arg0, String arg1) {
+  public void yMostrarContadorEnListaEnPosicionConValor(String arg0, String arg1)  {
+
     robot.mostrarContadorEnListaEnPosicionConValor(arg0, arg1);
 
   }
@@ -61,7 +62,7 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
   public void cuandoPulsarBotonDetalleNumeroDeVeces(String arg0) {
     robot.pulsarBotonDetalleNumeroDeVeces(arg0);
   }
-    
+
   @When("^cuando pulsar boton contador en posicion \"([^\"]*)\"$")
   public void cuandoPulsarBotonContadorEnPosicion(String arg0) {
     robot.pulsarBotonContadorEnPosicion(arg0);
@@ -74,7 +75,7 @@ public class InstrumentedSteps extends GreenCoffeeSteps {
     robot.pulsarBotonContadorEnPosicionNumeroDeVeces(arg0, arg1);
   }
 
-    @And("^y mostrar contador con valor \"([^\"]*)\"$")
+  @And("^y mostrar contador con valor \"([^\"]*)\"$")
   public void yMostrarContadorConValor(String arg0) {
     robot.mostrarContadorConValor(arg0);
 

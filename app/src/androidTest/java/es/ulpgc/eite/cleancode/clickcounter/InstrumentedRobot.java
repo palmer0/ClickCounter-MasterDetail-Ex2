@@ -34,6 +34,7 @@ public class InstrumentedRobot {
     this.rule = rule;
   }
 
+
   private static Matcher<View> withListSize(final int size) {
 
     return new TypeSafeMatcher<View>() {
@@ -53,6 +54,11 @@ public class InstrumentedRobot {
     return new TypeSafeMatcher<View>() {
 
       @Override public boolean matchesSafely (final View view) {
+        int size = ((ListView) view).getCount();
+        if(pos >= size) {
+          return false;
+        }
+
         Object obj = ((ListView) view).getItemAtPosition(pos);
         CounterData item = (CounterData) obj;
         return item.value == val;
@@ -92,7 +98,6 @@ public class InstrumentedRobot {
 
   }
 
-
   public void pulsarBotonMasterNumeroDeVeces(String arg0) {
     int length = Integer.valueOf(arg0);
 
@@ -106,10 +111,8 @@ public class InstrumentedRobot {
     int pos = Integer.valueOf(arg0);
     int val = Integer.valueOf(arg1);
 
-    onView (withId (R.id.list)).check (matches (withValueAtPosition(val,pos)));
+    onView(withId (R.id.list)).check(matches(withValueAtPosition(val, pos)));
   }
-
- 
 
   public void mostrarContadorConValor(String s) {
     onView(withId(R.id.counter))
@@ -147,10 +150,6 @@ public class InstrumentedRobot {
     onView(withId(R.id.detail)).perform(click());
   }
 
-  public void pulsarBotonRegresar() {
-    pressBack();
-  }
-
 
   public void pulsarBotonDetalleNumeroDeVeces(String arg0) {
     int length = Integer.valueOf(arg0);
@@ -159,4 +158,10 @@ public class InstrumentedRobot {
       pulsarBotonDetalle();
     }
   }
+
+
+  public void pulsarBotonRegresar() {
+    pressBack();
+  }
+
 }
