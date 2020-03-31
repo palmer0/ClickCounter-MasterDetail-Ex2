@@ -1,21 +1,13 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.view.View;
 import android.widget.ListView;
-
-import androidx.test.core.app.ApplicationProvider;
-import androidx.test.rule.ActivityTestRule;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.CounterData;
-import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -28,14 +20,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
 public class ClickCounterRobot {
-
-
-    private ActivityTestRule rule;
-
-    public ClickCounterRobot(ActivityTestRule<MasterActivity> rule) {
-        this.rule = rule;
-    }
-
 
     private static Matcher<View> withListSize(final int size) {
 
@@ -73,21 +57,6 @@ public class ClickCounterRobot {
             }
         };
     }
-
-
-    public void rotateScreen() {
-
-        Context context = ApplicationProvider.getApplicationContext();
-        int orientation = context.getResources().getConfiguration().orientation;
-        Activity activity = rule.getActivity();
-
-        if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
-            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        } else {
-            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
-    }
-
 
 
     public void mostrarListaConNumeroDeContadoresP1(String p1) {
