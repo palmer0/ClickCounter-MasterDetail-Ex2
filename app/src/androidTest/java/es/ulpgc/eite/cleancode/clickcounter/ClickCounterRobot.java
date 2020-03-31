@@ -75,7 +75,8 @@ public class ClickCounterRobot {
         int pos = Integer.valueOf(p1);
         int val = Integer.valueOf(p2);
 
-        onView(withId (R.id.list)).check(matches(withValueAtPosition(val, pos)));
+        onView(withId (R.id.list))
+            .check(matches(withValueAtPosition(val, pos)));
 
     }
 
