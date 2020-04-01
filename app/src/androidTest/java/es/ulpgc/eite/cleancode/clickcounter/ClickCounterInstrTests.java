@@ -19,7 +19,7 @@ import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class ClickCounterInstrTests {
+public class ClickCounterInstrTests { // 18 tests
 
 
     @Rule
