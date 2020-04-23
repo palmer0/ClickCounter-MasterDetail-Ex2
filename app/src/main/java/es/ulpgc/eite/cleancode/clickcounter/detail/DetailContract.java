@@ -46,7 +46,6 @@ public interface DetailContract {
   }
 
   interface Router {
-    void navigateToNextScreen();
 
     MasterToDetailState getStateFromPreviousScreen();
 

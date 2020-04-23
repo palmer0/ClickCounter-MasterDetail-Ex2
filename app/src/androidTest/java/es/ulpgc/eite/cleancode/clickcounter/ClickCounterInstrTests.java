@@ -213,6 +213,7 @@ public class ClickCounterInstrTests { // 18 tests
         robot.mostrarContadorConValorP1("2");
         // And mostrar numero de clicks con valor "2"
         robot.mostrarNumeroDeClicksConValorP1("2");
+
         // When pulsar boton regresar
         robot.pulsarBotonRegresar();
         // Then mostrar contador en lista en posicion "0" con valor "2"

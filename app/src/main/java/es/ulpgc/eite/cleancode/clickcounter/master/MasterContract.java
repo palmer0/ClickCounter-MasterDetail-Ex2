@@ -3,9 +3,9 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public interface MasterContract {
 
@@ -13,6 +13,8 @@ public interface MasterContract {
     void injectPresenter(Presenter presenter);
 
     void onDataUpdated(MasterViewModel viewModel);
+    void navigateToNextScreen();
+
   }
 
   interface Presenter {
@@ -48,7 +50,6 @@ public interface MasterContract {
   }
 
   interface Router {
-    void navigateToNextScreen();
 
     void passStateToNextScreen(MasterToDetailState state);
 
