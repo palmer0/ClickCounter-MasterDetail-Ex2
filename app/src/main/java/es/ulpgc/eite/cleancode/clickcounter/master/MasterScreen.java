@@ -14,13 +14,10 @@ public class MasterScreen {
         new WeakReference<>((FragmentActivity) view);
 
     AppMediator mediator = AppMediator.getInstance();
-    MasterState state = mediator.getMasterState();
 
-    MasterContract.Router router = new MasterRouter(mediator);
-    MasterContract.Presenter presenter = new MasterPresenter(state);
+    MasterContract.Presenter presenter = new MasterPresenter(mediator);
     MasterContract.Model model = new MasterModel();
     presenter.injectModel(model);
-    presenter.injectRouter(router);
     presenter.injectView(new WeakReference<>(view));
 
     view.injectPresenter(presenter);

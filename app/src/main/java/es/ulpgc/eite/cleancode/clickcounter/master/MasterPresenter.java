@@ -2,7 +2,9 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
+import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -11,11 +13,13 @@ public class MasterPresenter implements MasterContract.Presenter {
   private WeakReference<MasterContract.View> view;
   private MasterState state;
   private MasterContract.Model model;
-  private MasterContract.Router router;
+  private AppMediator mediator;
 
-  public MasterPresenter(MasterState state) {
-    this.state = state;
+  public MasterPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getMasterState();
   }
+
 
   @Override
   public void onStart() {
@@ -41,7 +45,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onResume()");
 
     // use passed state if is necessary
-    DetailToMasterState savedState = router.getStateFromNextScreen();
+    DetailToMasterState savedState = getStateFromNextScreen();
     if (savedState != null) {
 
       // update the model if is necessary
@@ -71,6 +75,15 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onDestroy()");
   }
 
+  private void passStateToNextScreen(MasterToDetailState state) {
+    mediator.setNextMasterScreenState(state);
+  }
+
+
+  private DetailToMasterState getStateFromNextScreen() {
+    return mediator.getNextMasterScreenState();
+  }
+
   @Override
   public void onButtonPressed() {
     // Log.e(TAG, "onButtonPressed()");
@@ -86,8 +99,4 @@ public class MasterPresenter implements MasterContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void injectRouter(MasterContract.Router router) {
-    this.router = router;
-  }
 }

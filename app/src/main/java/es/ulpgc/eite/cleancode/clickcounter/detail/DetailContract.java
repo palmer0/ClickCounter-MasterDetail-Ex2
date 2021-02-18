@@ -15,40 +15,23 @@ public interface DetailContract {
 
   interface Presenter {
     void injectView(WeakReference<View> view);
-
     void injectModel(Model model);
 
-    void injectRouter(Router router);
-
     void onResume();
-
     void onStart();
-
     void onRestart();
-
     void onBackPressed();
-
     void onPause();
-
     void onDestroy();
-
     void onButtonPressed();
   }
 
   interface Model {
     String getStoredData();
-
     void onDataFromNextScreen(String data);
-
     void onRestartScreen(String data);
-
     void onDataFromPreviousScreen(String data);
   }
 
-  interface Router {
 
-    MasterToDetailState getStateFromPreviousScreen();
-
-    void passStateToPreviousScreen(DetailToMasterState state);
-  }
 }

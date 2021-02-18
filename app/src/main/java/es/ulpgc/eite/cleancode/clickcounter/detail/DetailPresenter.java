@@ -2,6 +2,8 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
+import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class DetailPresenter implements DetailContract.Presenter {
@@ -11,11 +13,13 @@ public class DetailPresenter implements DetailContract.Presenter {
   private WeakReference<DetailContract.View> view;
   private DetailState state;
   private DetailContract.Model model;
-  private DetailContract.Router router;
+  private AppMediator mediator;
 
-  public DetailPresenter(DetailState state) {
-    this.state = state;
+  public DetailPresenter(AppMediator mediator) {
+    this.mediator = mediator;
+    state = mediator.getDetailState();
   }
+
 
   @Override
   public void onStart() {
@@ -27,7 +31,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     }
 
     // use passed state if is necessary
-    MasterToDetailState savedState = router.getStateFromPreviousScreen();
+    MasterToDetailState savedState = getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
@@ -75,6 +79,14 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "onButtonPressed()");
   }
 
+  private void passStateToPreviousScreen(DetailToMasterState state) {
+    mediator.setPreviousDetailScreenState(state);
+  }
+
+  private MasterToDetailState getStateFromPreviousScreen() {
+    return mediator.getPreviousDetailScreenState();
+  }
+
   @Override
   public void injectView(WeakReference<DetailContract.View> view) {
     this.view = view;
@@ -85,8 +97,5 @@ public class DetailPresenter implements DetailContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void injectRouter(DetailContract.Router router) {
-    this.router = router;
-  }
+
 }

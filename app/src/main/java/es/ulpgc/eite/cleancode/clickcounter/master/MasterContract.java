@@ -19,41 +19,23 @@ public interface MasterContract {
 
   interface Presenter {
     void injectView(WeakReference<View> view);
-
     void injectModel(Model model);
 
-    void injectRouter(Router router);
-
     void onResume();
-
     void onStart();
-
     void onRestart();
-
     void onBackPressed();
-
     void onPause();
-
     void onDestroy();
-
     void onButtonPressed();
   }
 
   interface Model {
     List<CounterData> getStoredData();
-
     void onDataFromNextScreen(String data);
-
     void onRestartScreen(List<CounterData> datasource);
-
     void onDataFromPreviousScreen(String data);
   }
 
-  interface Router {
 
-    void passStateToNextScreen(MasterToDetailState state);
-
-    DetailToMasterState getStateFromNextScreen();
-
-  }
 }
