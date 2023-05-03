@@ -7,7 +7,7 @@ import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterModel implements MasterContract.Model {
 
-  public static String TAG = MasterModel.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.MasterModel";
 
   private List<CounterData> datasource;
 
@@ -24,15 +24,21 @@ public class MasterModel implements MasterContract.Model {
   @Override
   public void onRestartScreen(List<CounterData> datasource) {
     // Log.e(TAG, "onRestartScreen()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onDataFromNextScreen(String data) {
     // Log.e(TAG, "onDataFromNextScreen()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onDataFromPreviousScreen(String data) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
+
+    // TODO: add code if is necessary
   }
 }

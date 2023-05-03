@@ -14,7 +14,7 @@ import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 public class MasterActivity
     extends AppCompatActivity implements MasterContract.View {
 
-  public static String TAG = MasterActivity.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.MasterActivity";
 
   private MasterContract.Presenter presenter;
 

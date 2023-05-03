@@ -1,22 +1,25 @@
 package es.ulpgc.eite.cleancode.clickcounter;
 
 
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.uiautomator.UiDevice;
 
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import es.ulpgc.eite.cleancode.clickcounter.master.MasterActivity;
-
-import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 @SuppressWarnings("deprecation")
 @RunWith(AndroidJUnit4.class)
 @LargeTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClickCounterInstrTests { // 18 tests
 
 
@@ -24,7 +27,6 @@ public class ClickCounterInstrTests { // 18 tests
     public ActivityTestRule<MasterActivity> rule =
         new ActivityTestRule<>(MasterActivity.class);
 
-    //private ClickCounterRobot robot = new ClickCounterRobot(rule);
     private ClickCounterRobot robot = new ClickCounterRobot();
 
 
@@ -47,32 +49,10 @@ public class ClickCounterInstrTests { // 18 tests
 
     }
 
-    /*
-    public void rotateScreen() {
-
-        Context context = ApplicationProvider.getApplicationContext();
-        int orientation = context.getResources().getConfiguration().orientation;
-        Activity activity = rule.getActivity();
-
-        if(orientation  == Configuration.ORIENTATION_PORTRAIT) {
-            activity.setRequestedOrientation(
-                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-            );
-        } else {
-            activity.setRequestedOrientation(
-                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-            );
-        }
-
-        try {
-            Thread.sleep(700);
-        } catch (InterruptedException e) { }
-    }
-    */
 
 
     @Test
-    public void testCrearContadorEnMaestro() { // 1
+    public void test01CrearContadorEnMaestro() { // 1
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -85,7 +65,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testCrearContadorEnMaestroConRotacion() { // 2
+    public void test02CrearContadorEnMaestroConRotacion() { // 2
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -100,7 +80,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnContadorDeMaestro() { // 3
+    public void test03PulsarEnContadorDeMaestro() { // 3
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -119,7 +99,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnContadorDeMaestroConRotacion() { // 4
+    public void test04PulsarEnContadorDeMaestroConRotacion() { // 4
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -140,7 +120,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnContadorDeDetalle() { // 5
+    public void test05PulsarEnContadorDeDetalle() { // 5
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -165,7 +145,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnContadorDeDetalleConRotacion() { // 6
+    public void test06PulsarEnContadorDeDetalleConRotacion() { // 6
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -192,7 +172,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnRegresarDeDetalle() { // 7
+    public void test07PulsarEnRegresarDeDetalle() { // 7
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -225,7 +205,7 @@ public class ClickCounterInstrTests { // 18 tests
 
 
     @Test
-    public void testPulsarEnRegresarDeDetalleConRotacion() { // 8
+    public void test08PulsarEnRegresarDeDetalleConRotacion() { // 8
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -259,7 +239,7 @@ public class ClickCounterInstrTests { // 18 tests
 
 
     @Test
-    public void testCrearVariosContadoresEnMaestro() { // 9
+    public void test09CrearVariosContadoresEnMaestro() { // 9
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -276,7 +256,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testCrearVariosContadoresEnMaestroConRotacion() { // 10
+    public void test10CrearVariosContadoresEnMaestroConRotacion() { // 10
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -295,7 +275,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarVariasVecesEnContadorDeMaestro() { // 11
+    public void test11PulsarVariasVecesEnContadorDeMaestro() { // 11
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -319,7 +299,7 @@ public class ClickCounterInstrTests { // 18 tests
 
 
     @Test
-    public void testPulsarVariasVecesEnContadorDeMaestroConRotacion() { // 12
+    public void test12PulsarVariasVecesEnContadorDeMaestroConRotacion() { // 12
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -344,7 +324,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarVariasVecesEnContadoresDeMaestro() { // 13
+    public void test13PulsarVariasVecesEnContadoresDeMaestro() { // 13
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -369,7 +349,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarVariasVecesEnContadoresDeMaestroConRotacion() { // 14
+    public void test14PulsarVariasVecesEnContadoresDeMaestroConRotacion() { // 14
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -396,7 +376,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnContadorDeDetalles() { // 15
+    public void test15PulsarEnContadorDeDetalles() { // 15
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -429,7 +409,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarEnContadorDeDetallesConRotacion() { // 16
+    public void test16PulsarEnContadorDeDetallesConRotacion() { // 16
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -464,7 +444,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarVariasVecesContadorDeDetalles() { // 17
+    public void test17PulsarVariasVecesContadorDeDetalles() { // 17
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");
@@ -495,7 +475,7 @@ public class ClickCounterInstrTests { // 18 tests
     }
 
     @Test
-    public void testPulsarVariasVecesContadorDeDetallesConRotacion() { // 18
+    public void test18PulsarVariasVecesContadorDeDetallesConRotacion() { // 18
 
         // Given  mostrar lista con numero de contadores "0"
         robot.mostrarListaConNumeroDeContadoresP1("0");

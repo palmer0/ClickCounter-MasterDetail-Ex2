@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
@@ -8,7 +10,7 @@ import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
 
 public class DetailPresenter implements DetailContract.Presenter {
 
-  public static String TAG = DetailPresenter.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.DetailPresenter";
 
   private WeakReference<DetailContract.View> view;
   private DetailState state;
@@ -17,66 +19,61 @@ public class DetailPresenter implements DetailContract.Presenter {
 
   public DetailPresenter(AppMediator mediator) {
     this.mediator = mediator;
-    state = mediator.getDetailState();
+    
   }
 
 
   @Override
   public void onStart() {
-    // Log.e(TAG, "onStart()");
+    Log.e(TAG, "onStart()");
 
-    // initialize the state if is necessary
-    if (state == null) {
-      state = new DetailState();
-    }
+    // initialize the state 
+    state = new DetailState();
 
-    // use passed state if is necessary
-    MasterToDetailState savedState = getStateFromPreviousScreen();
-    if (savedState != null) {
-
-      // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.data);
-    }
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onRestart() {
-    // Log.e(TAG, "onRestart()");
+    Log.e(TAG, "onRestart()");
 
-    // update the model if is necessary
-    model.onRestartScreen(state.data);
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onResume() {
-    // Log.e(TAG, "onResume()");
+    Log.e(TAG, "onResume()");
 
-    // call the model and update the state
-    state.data = model.getStoredData();
-
-    // update the view
-    view.get().onDataUpdated(state);
+    // TODO: add code if is necessary
 
   }
 
   @Override
   public void onBackPressed() {
-    // Log.e(TAG, "onBackPressed()");
+    Log.e(TAG, "onBackPressed()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onPause() {
-    // Log.e(TAG, "onPause()");
+    Log.e(TAG, "onPause()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onDestroy() {
-    // Log.e(TAG, "onDestroy()");
+    Log.e(TAG, "onDestroy()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onButtonPressed() {
-    // Log.e(TAG, "onButtonPressed()");
+    Log.e(TAG, "onButtonPressed()");
+
+    // TODO: add code if is necessary
   }
 
   private void passStateToPreviousScreen(DetailToMasterState state) {

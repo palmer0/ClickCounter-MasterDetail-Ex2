@@ -2,7 +2,7 @@ package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 public class DetailModel implements DetailContract.Model {
 
-  public static String TAG = DetailModel.class.getSimpleName();
+  public static String TAG = "ClickCounter-MasterDetail.DetailModel";
 
   private String data;
 
@@ -15,15 +15,21 @@ public class DetailModel implements DetailContract.Model {
   @Override
   public void onRestartScreen(String data) {
     // Log.e(TAG, "onRestartScreen()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onDataFromNextScreen(String data) {
     // Log.e(TAG, "onDataFromNextScreen()");
+
+    // TODO: add code if is necessary
   }
 
   @Override
   public void onDataFromPreviousScreen(String data) {
     // Log.e(TAG, "onDataFromPreviousScreen()");
+
+    // TODO: add code if is necessary
   }
 }
