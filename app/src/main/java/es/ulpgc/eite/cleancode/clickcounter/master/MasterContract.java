@@ -27,6 +27,9 @@ public interface MasterContract {
     void onBackPressed();
     void onPause();
     void onDestroy();
+
+    void onListPressed(CounterData counter);
+
     void onButtonPressed();
   }
 

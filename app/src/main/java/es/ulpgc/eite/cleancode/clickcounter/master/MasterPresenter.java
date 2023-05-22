@@ -7,6 +7,7 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.eite.cleancode.clickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -67,6 +68,14 @@ public class MasterPresenter implements MasterContract.Presenter {
     Log.e(TAG, "onDestroy()");
 
     // TODO: add code if is necessary
+  }
+
+  @Override
+  public void onListPressed(CounterData counter) {
+    Log.e(TAG, "onListPressed()");
+
+    // TODO: add code if is necessary
+
   }
 
   private void passStateToNextScreen(MasterToDetailState state) {

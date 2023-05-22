@@ -85,7 +85,7 @@ public class MasterActivity
           @Override
           public void onClick(View view) {
             CounterData data = (CounterData) view.getTag();
-
+            presenter.onListPressed(data);
           }
         })
     );
